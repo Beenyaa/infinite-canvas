@@ -1,0 +1,130 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true,
+    "defaultBranch": "main"
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": ["**/*.{ts,js,tsx,jsx,css,json,jsonc,md,mdx,gql,graphql}", "!**/.react-router", "!**/public", "!**/node_modules"]
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "security": {
+        // Allow dangerouslySetInnerHTML for necessary dynamic content.
+        "noDangerouslySetInnerHtml": "warn"
+      },
+      "a11y": {
+        // SVGs should have titles for accessibility, similar to alt text on images.
+        "noSvgWithoutTitle": "warn",
+        // Disabled for decorative videos that don't require captions.
+        "useMediaCaption": "off"
+      },
+      "complexity": {
+        // Allow forEach for better readability in simple iterations.
+        "noForEach": "off"
+      },
+      "correctness": {
+        // Enforce exhaustive dependencies despite occasional false positives.
+        "useExhaustiveDependencies": "warn",
+        // Remove all unused variables and imports.
+        "noUnusedImports": "error",
+        "noUnusedVariables": "error",
+        "noUndeclaredVariables": "error"
+      },
+      "style": {
+        // Use `as const` assertions for improved readability.
+        "useAsConstAssertion": "error",
+        // Require self-closing elements for consistency.
+        "useSelfClosingElements": "error",
+        // Prevent comma-separated variable declarations for clarity.
+        // Example: avoid `let foo = 0, bar, baz;`
+        "useSingleVarDeclarator": "error",
+        // Enforce Number namespace methods for clarity.
+        // Example: use `Number.parseInt()` instead of `parseInt()`.
+        "useNumberNamespace": "error",
+        // Less type annotations improve readability.
+        "noInferrableTypes": "error",
+        // Reassigning parameters is usually not a good idea.
+        "noParameterAssign": "error",
+        // Default parameters come last for better function signatures.
+        "useDefaultParameterLast": "error",
+        // Early returns reduce nesting.
+        "noUselessElse": "error",
+        "noRestrictedImports": {
+          "level": "error",
+          "options": {
+            "paths": {
+              // Enforce using project-specific style utilities instead of direct imports.
+              "cva": "Use `~/app/style/utils` instead.",
+              "class-variance-authority": "Use `~/app/style/utils` instead.",
+              "tailwind-merge": "Use `~/app/style/utils` instead.",
+              // Enforce the recommended import pattern for React (namespace).
+              "react": {
+                "allowImportNames": ["*"],
+                "message": "Use 'import * as React from \"react\"' instead of named or default imports."
+              }
+            }
+          }
+        }
+      },
+      "suspicious": {
+        // Allow array index as key for simple, static lists.
+        // @see https://react.dev/learn/rendering-lists#why-does-react-need-keys
+        "noArrayIndexKey": "warn",
+        // Tailwind uses custom at rules.
+        "noUnknownAtRules": "off",
+        // Duplicated CSS properties are okay. Also, this causes false-positives
+        // when CSS properties are re-declared in a different media query scope.
+        "noDuplicateCustomProperties": "off"
+      },
+      "nursery": {
+        // Automatically sort Tailwind CSS classes for consistency.
+        "useSortedClasses": {
+          "level": "error",
+          "fix": "safe",
+          "options": {
+            "attributes": ["className"],
+            "functions": ["cx", "cva"]
+          }
+        }
+      },
+      "performance": {
+        // Dev UX outweighs the performance cost in most cases.
+        "noAccumulatingSpread": "off",
+        "noImgElement": "off"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "lineWidth": 130,
+    "indentWidth": 2,
+    "indentStyle": "space"
+  },
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "always",
+      "jsxQuoteStyle": "double",
+      "quoteStyle": "double",
+      "semicolons": "always",
+      "trailingCommas": "es5"
+    }
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  }
+}
+
