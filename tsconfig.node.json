@@ -13,6 +13,10 @@
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./*"]
+    },
 
     /* Linting */
     "strict": true,

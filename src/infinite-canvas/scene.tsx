@@ -1,7 +1,7 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as React from "react";
 import * as THREE from "three";
-import { useIsTouchDevice } from "../hooks/use-is-touch-device";
+import { useIsTouchDevice } from "~/src/use-is-touch-device";
 
 export type MediaItem = {
   url: string;
