@@ -318,6 +318,11 @@ function SceneController({
     };
 
     const onMouseDown = (e: MouseEvent) => {
+      // Incorporate current drift into basePos to maintain camera position continuity
+      s.basePos.x += s.drift.x;
+      s.basePos.y += s.drift.y;
+      s.drift.x = 0;
+      s.drift.y = 0;
       s.isDragging = true;
       s.lastMouse = { x: e.clientX, y: e.clientY };
       setCursor("grabbing");
