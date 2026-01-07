@@ -10,13 +10,13 @@
   align-items: center;
   grid-template-columns: auto auto auto auto 1fr;
   grid-template-areas:
-    'title title credits ...'
-    'back archive github ...'
-    'tags tags tags tags'
-    'sponsor sponsor sponsor sponsor';
+    "title title credits ..."
+    "back archive github ..."
+    "tags tags tags tags"
+    "sponsor sponsor sponsor sponsor";
   color: #fff;
   mix-blend-mode: difference;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 300;
   text-transform: uppercase;
 }
@@ -30,7 +30,7 @@
 
 .frame__title {
   grid-area: title;
-  font-family: 'Asul', serif;
+  font-family: "Asul", serif;
   font-size: 1rem;
   font-weight: 400;
   margin: 0;
@@ -81,9 +81,9 @@
     grid-template-rows: auto auto auto;
     align-content: space-between;
     grid-template-areas:
-      'back github archive ... credits'
-      'title title title title title'
-      'tags tags tags tags sponsor';
+      "back github archive ... credits"
+      "title title title title title"
+      "tags tags tags tags sponsor";
   }
 
   .frame__title {
