@@ -36,7 +36,7 @@ npm run dev
 
 ## Misc
 
-Follow Bence: [Website](https://www.bence.codes/), [GitHub](https://github.com/beenyaa), [X](https://x.com/bencegadanyi)
+Follow Bence: [Website](https://www.bence.codes/), [GitHub](https://github.com/beenyaa), [X](https://x.com/bencetxt)
 
 Follow Edoardo: [Instagram](https://www.instagram.com/edo.tsx/), [GitHub](https://github.com/edoardolunardi), [LinkedIn](https://www.linkedin.com/in/edoardolunardi/)
 
