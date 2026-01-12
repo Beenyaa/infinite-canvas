@@ -10,7 +10,9 @@
     "check:biome": "biome lint --diagnostic-level=error --no-errors-on-unmatched --files-ignore-unknown=true",
     "check": "npm run check:types && npm run check:biome",
     "lint": "npm run check:biome",
-    "format": "biome check --write --unsafe"
+    "format": "biome check --write --unsafe",
+    "preview": "vite preview",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "react": "^19.2.3",
