@@ -1,24 +1,32 @@
 .frame {
-  padding: 1rem var(--page-padding, 1.5rem) 0;
+  padding: 1.5rem;
   display: grid;
   z-index: 1000;
-  position: relative;
-  grid-row-gap: 0.5rem;
-  grid-column-gap: 1rem;
+  position: fixed;
+  /* prevent scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+
   pointer-events: none;
   justify-items: start;
   align-items: center;
-  grid-template-columns: auto auto auto auto 1fr;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
   grid-template-areas:
-    "title title credits ..."
-    "back archive github ..."
-    "tags tags tags tags"
-    "sponsor sponsor sponsor sponsor";
+    "title github"
+    "... ..."
+    "tags credits";
+
   color: #fff;
   mix-blend-mode: difference;
   font-family: "DM Sans", sans-serif;
   font-weight: 300;
   text-transform: uppercase;
+  font-size: 14px;
 }
 
 .frame a,
@@ -31,36 +39,34 @@
 .frame__title {
   grid-area: title;
   font-family: "Asul", serif;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 400;
   margin: 0;
   color: #fff;
   mix-blend-mode: difference;
 }
 
-.frame__back {
-  grid-area: back;
-  justify-self: start;
-}
-
-.frame__archive {
-  grid-area: archive;
-  justify-self: start;
-}
-
 .frame__github {
   grid-area: github;
+  justify-self: end;
+  align-self: start;
 }
 
 .frame__credits {
   grid-area: credits;
+  justify-self: end;
+  align-self: end;
+  opacity: 0.8;
+  text-align: right;
 }
 
 .frame__tags {
   grid-area: tags;
+  align-self: end;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.75rem;
+  line-height: 1.4;
 }
 
 .frame__tags a {
@@ -70,7 +76,6 @@
 
 @media screen and (min-width: 53em) {
   .frame {
-    padding: var(--page-padding, 1.5rem);
     height: 100%;
     position: fixed;
     top: 0;
@@ -81,9 +86,11 @@
     grid-template-rows: auto auto auto;
     align-content: space-between;
     grid-template-areas:
-      "back github archive ... credits"
+      "... github ... ... credits"
       "title title title title title"
-      "tags tags tags tags sponsor";
+      "tags tags tags tags ...";
+    font-size: 1rem;
+    padding: var(--page-padding, 2.5rem);
   }
 
   .frame__title {
@@ -92,11 +99,31 @@
   }
 
   .frame__tags {
-    align-self: end;
     gap: 2rem;
+    align-self: end;
   }
 
   .frame__credits {
     text-align: right;
   }
+}
+
+.controlsPanel {
+  grid-area: controls;
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  mix-blend-mode: difference;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 1001;
+}
+
+.controlsPanel b {
+  font-weight: 600;
 }

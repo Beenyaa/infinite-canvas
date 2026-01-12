@@ -14,19 +14,6 @@
   --color-loader-bar-fill: rgb(101, 82, 60);
 }
 
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  color: var(--color-text);
-  background-color: var(--color-background);
-}
-
 a {
   text-decoration: none;
   color: var(--color-link);
@@ -47,7 +34,25 @@ a:focus-visible {
   outline: 2px solid red;
 }
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html,
+body,
 #root {
-  position: relative;
-  min-height: 100svh;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: fixed;
+}
+
+body {
+  color: var(--color-text);
+  background-color: var(--color-background);
+  overscroll-behavior: none;
 }

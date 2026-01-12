@@ -1,35 +1,37 @@
-import type * as THREE from "three";
+export interface Vector3 {
+    x: number;
+    y: number;
+    z: number;
+}
 
-export type MediaItem = {
-  url: string;
-  width: number;
-  height: number;
-};
+export interface MediaItem {
+    url: string;
+    type: 'image' | 'video';
+}
 
-export type InfiniteCanvasProps = {
-  media: MediaItem[];
-  onTextureProgress?: (progress: number) => void;
-  showFps?: boolean;
-  showControls?: boolean;
-  cameraFov?: number;
-  cameraNear?: number;
-  cameraFar?: number;
-  fogNear?: number;
-  fogFar?: number;
-  backgroundColor?: string;
-  fogColor?: string;
-};
+export type MediaType = 'image' | 'video';
 
-export type ChunkData = {
-  key: string;
-  cx: number;
-  cy: number;
-  cz: number;
-};
+export interface PlaneData {
+    id: string;
+    position: Vector3;
+    width: number;
+    height: number;
+    mediaIndex: number;
+    opacity: number;
+}
 
-export type PlaneData = {
-  id: string;
-  position: THREE.Vector3;
-  scale: THREE.Vector3;
-  mediaIndex: number;
-};
+export interface Chunk {
+    key: string;
+    cx: number;
+    cy: number;
+    cz: number;
+    planes: PlaneData[];
+}
+
+export interface CameraState {
+    pos: Vector3;
+    velocity: Vector3;
+    targetVel: Vector3;
+    mouse: { x: number; y: number };
+    drift: { x: number; y: number };
+}

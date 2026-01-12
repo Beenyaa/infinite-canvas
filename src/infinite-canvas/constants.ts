@@ -1,35 +1,8 @@
-import { run } from "~/src/utils";
-
-export const CHUNK_SIZE = 110;
-export const RENDER_DISTANCE = 2;
-export const CHUNK_FADE_MARGIN = 1;
-export const MAX_VELOCITY = 3.2;
-export const DEPTH_FADE_START = 140;
-export const DEPTH_FADE_END = 260;
-export const INVIS_THRESHOLD = 0.01;
-export const KEYBOARD_SPEED = 0.18;
-export const VELOCITY_LERP = 0.16;
-export const VELOCITY_DECAY = 0.9;
-export const INITIAL_CAMERA_Z = 50;
-
-export type ChunkOffset = {
-  dx: number;
-  dy: number;
-  dz: number;
-  dist: number;
-};
-
-export const CHUNK_OFFSETS: ChunkOffset[] = run(() => {
-  const maxDist = RENDER_DISTANCE + CHUNK_FADE_MARGIN;
-  const offsets: ChunkOffset[] = [];
-  for (let dx = -maxDist; dx <= maxDist; dx++) {
-    for (let dy = -maxDist; dy <= maxDist; dy++) {
-      for (let dz = -maxDist; dz <= maxDist; dz++) {
-        const dist = Math.max(Math.abs(dx), Math.abs(dy), Math.abs(dz));
-        if (dist > maxDist) continue;
-        offsets.push({ dx, dy, dz, dist });
-      }
-    }
-  }
-  return offsets;
-});
+export const CHUNK_SIZE = 2500;
+export const RENDER_RADIUS = 4;
+export const FOCAL_LENGTH = 800;
+export const VELOCITY_LERP = 0.1;
+export const VELOCITY_DECAY = 0.92;
+export const INITIAL_CAMERA_Z = -500;
+export const FADE_START_Z = 4000;
+export const FADE_END_Z = 7000;

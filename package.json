@@ -14,18 +14,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-three/drei": "10.7.7",
-    "@react-three/fiber": "9.4.2",
     "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "three": "0.182.0"
+    "react-dom": "^19.2.3"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.8",
     "@types/node": "^25.0.1",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
-    "@types/three": "0.182.0",
     "@vitejs/plugin-react": "^5.1.2",
     "babel-plugin-react-compiler": "^1.0.0",
     "typescript": "~5.9.3",
